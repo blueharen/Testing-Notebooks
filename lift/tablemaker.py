@@ -102,9 +102,9 @@ def populate_table(day_of_week, skip_all=True, exercises_skipped=None, exercises
     counter = 0
     for exercise in exercises_list:
         print(f'Exercise: {exercise}')
-        set_num = int(input('Number of Sets?'))
-        num_reps = int(input('Number of Reps?'))
-        weight = int(input('Weight?'))
+        set_num = int(input('Number of Sets? '))
+        num_reps = int(input('Number of Reps? '))
+        weight = int(input('Weight? '))
         if counter == 0:
             table = make_table(exercise,set_num,num_reps,weight,date=date)
         else:
