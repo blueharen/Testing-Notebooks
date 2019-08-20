@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 from datetime import date
+import matplotlib.pyplot as plt
 
 def make_table(exercise, num_sets, num_reps, weight, data=None,
                date=date.today().strftime('%m-%d-%y')):
@@ -122,3 +123,17 @@ def make_file(df, name_of_file='Lift Numbers.csv'):
             file.write(df.to_csv(index=False, header=True))
         else:
             file.write(df.to_csv(index=False, header=False))
+
+
+def view_progress(df,exercise): 
+    '''
+    Function to view Progression of Lifts over time.
+    Parameters:
+    df : DataFrame : DataFrame of all lifts
+    exercise : string : String of exercise in DataFrame you wish to view
+        progression for
+    '''
+    df = df[df['exercise'] == exercise]
+    
+    #plot graph with 5 x tickmarks
+    df.plot(x='date',y='weight',xticks=[0,int(len(df)/4),int(len(df)/2),int(3*len(df)/4),len(df)-1])
